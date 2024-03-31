@@ -42,4 +42,6 @@ println(account.balance) // 50.0
 - 가변 컬렉션과 읽기 전용 컬렉션 구분
 - 데이터 클래스의 copy
 
+> val : getter 생성
+> var : getter/setter 생성
 
