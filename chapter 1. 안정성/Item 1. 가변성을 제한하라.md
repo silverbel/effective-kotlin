@@ -9,6 +9,7 @@
 - 예외. 가끔 효율성 때문에 immutable 객체보다 mutable 객체가 좋음(3부 추가 설명)
 - immutable 객체를 사용할 때는 언제나 멀티스레드 때에 더 많은 주의
 ___
+# 아이템 1. 가변성을 제한하라
 
 ```kotlin
 class BankAccount {
