@@ -189,14 +189,14 @@ print(user) // User(name="AAA", surname="CCC")
 val list1: MutableList<Int> = mutableListOf()
 var list2: List<Int> = listOf()
 
-list1.add(1)
-list2 = list2 + 1
+list1.add(1)		// 해당 주소에 저장된 객체에 추가 된다.
+list2 = list2 + 1	// + 연산은 주소값을 return 함으로 그나마 안전하다는 뜻이지... thread-safe 하지는 않다!
 
 list1 += 1 // list1.plusAssign(1)로 변경
 list2 += 1 // list2 = list2.plus(1)로 변경
 ```
 - list1 의 변경은 구체적인 리스트 구현 내부에 변경 가능 지점이 있어, 멀티스레드 처리가 이뤄질 경우, 내부적으로 적절한 동기화가 되어있는지 알 수 없어 위험
-- list2의 변경은 프로퍼티 자체가 변경가능 지점. 따라서 멀티스레드 처리 안정성이 더 좋음
+- list2의 변경은 프로퍼티 자체가 변경가능 지점. 따라서 멀티스레드 처리 안정성이 더 좋음 (thread-safe 하지는 않다!)
 
 ```kotlin
 var list = listOf<Int>() 
