@@ -5,7 +5,7 @@
 -----
 
 # 아이템4. inferred 타입으로 리턴하지 말라
-코틀린의 타입추론(type inference)은 JVM 세계에서 가장 널리 알려진 코틀린의 특징이다.
+> 코틀린의 타입추론(type inference)은 JVM 세계에서 가장 널리 알려진 코틀린의 특징이다.
 infereed 타입은 정확하게 오른쪽에 있는 피연산자에 맞게 설정된다는 것을 기억해야 한다. 절대 슈퍼클래스 또는 인터페이스로는 설정되지 않는다.
 ```kotlin
 open class Animal
@@ -16,7 +16,7 @@ fun main() {
 	animal = Animal() // 오류: Type mismatch
 
 fun main() {
-	var animal: Animal = Zebra()
+	var animal: Animal = Zebra()  // Type을 명시적으로 선언
 	animal = Animal() // 성공
 ```
 직접 라이브러리(모듈)를 조작할 수 없는 경우 위와 같이 타입을 명시적으로 지정해 해결할 수 없다.
