@@ -78,10 +78,6 @@ fun speak(text: String) {
   //...
 }
 
-fun getUserInfo(): UserInfo {
-  checkNotNull(token)
-}
-
 fun next(): T {
   check(isOpen)
   //...
