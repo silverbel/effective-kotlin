@@ -149,7 +149,7 @@ fun sendEmail(person: Person, text: String) {
   //...
 }
 ```
-프로퍼티에 문제가 있어서 null 일 때 여러 처리를 해야 할 때도, return/throw와 run 함수를 조합해서 활용하면 된다.
+프로퍼티에 문제가 있어서 null 일 때 여러 처리를 해야 할 때도, return/throw와 run 함수를 조합해서 활용하면 된다. (미선님 코멘트 : try-catch-finally에서 finally 같은 느낌입니다)
 ```kotlin
 fun sendEmail(person: Person, text: String) {
   val email: String = person.email ?: run {
