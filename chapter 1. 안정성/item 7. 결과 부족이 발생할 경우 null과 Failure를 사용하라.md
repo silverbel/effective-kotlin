@@ -48,4 +48,48 @@ val age = when(person) {
   - getOrNull: out of range 오류가 발생할 수 있는 경우에 사용하고 발생한 경우에 null을 리턴
 - 이외에도 getOrDefault를 사용할 수 있음
 - null이 발생할 가능성이 있다면 getOrNull등을 사용해서 무엇이 리턴되는지 예측할 수 있게 하는 것이 좋다
-  
+
+---
+## ❓ Sealed Class 란
+> Sealed Class 는 Enum Class 의 확장판과도 같다.
+>
+> 제한적인 계층관계를 효과적으로 표현할 수 있고, 이에 따라 when 문 사용 시 효과적으로 사용할 수 있다.
+
+### enum의 제약사항
+- 각 enum 상수들은 단 하나의 인스턴스만 가질 수 있음 (싱글톤)
+- enum 상수 정의 이후에 속성값을 변경할 수 없음
+- enum 클래스에 대해 서브 클래스를 생성할 수 없음
+
+### sealed Class의 장점
+- sealed 클래스의 서브 클래스들은 반드시 같은 파일 내에 선언되어야 함
+- 단, sealed 클래스의 서브 클래스를 상속한 클래스들은 같은 파일 내에 없어도 됨
+- sealed 클래스는 기본적으로 abstract 클래스임
+- sealed 클래스는 private 생성자만 갖게 됨
+
+```kotlin
+// sealed 클래스 선언 예제
+sealed class Color {
+    data class Red(val r: Int, val g: Int, val b: Int) : Color()
+    data class Orange(val r: Int, val g: Int, val b: Int) : Color()
+    data class Yellow(val r: Int, val g: Int, val b: Int) : Color()
+    data class Green(val r: Int, val g: Int, val b: Int) : Color()
+    data class Blue(val r: Int, val g: Int, val b: Int) : Color()
+    data class Indigo(val r: Int, val g: Int, val b: Int) : Color()
+    data class Violet(val r: Int, val g: Int, val b: Int) : Color()
+}
+```
+```kotlin
+// sealed 클래스 사용 예제
+fun main() {
+    val color: Color = Color.Red(255, 0, 20)
+    when (color) {
+        is Color.Red -> println("빨강")
+        is Color.Orange -> println("주황")
+        is Color.Yellow -> println("노랑")
+        is Color.Green -> println("초록")
+        is Color.Blue -> println("파랑")
+				is Color.Indigo -> println("인디고")
+				is Color.Violet -> println("바이올렛")
+    }
+}
+```
