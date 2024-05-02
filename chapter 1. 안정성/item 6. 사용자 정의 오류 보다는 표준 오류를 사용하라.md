@@ -9,6 +9,7 @@ Why❓) 많은 개발자가 알고 있으므로, 이를 재사용하는 것이 �
 - NoSuchElementException            : 사용자가 사용하려고 했던 요소가 없을때 발생하는 예외
 ---
 ❓) ConcurrentModificationException : 동시수정을 금지 했는데 동시수정이 발생했을때 throw 되는 예외
+
  ㄴ 이해가 안되서 예제를 찾아봤는데... 진짜 이해가 안된다 ㅠ_ㅠ
  
 ```kotlin
