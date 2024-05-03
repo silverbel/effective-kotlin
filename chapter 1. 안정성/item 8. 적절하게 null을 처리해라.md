@@ -135,3 +135,16 @@ class DoctorActivity: Activity() {
 }
 ```
 위와 같이 프로퍼티를 위임하면 nullability로 발생하는 여러 가지 문제를 안전하게 처리할 수 있다.
+---
+### lateinit와 Deletages.notNull 비교
+#### 공통
+- var 프로퍼티에만 사용할 수 있다.
+- null이 될 수 없는 타입에만 사용할 수 있다.
+#### lateinit
+- 기본 타입(int, long 등)에는 사용할 수 없다.
+- 프로퍼티가 초기화되기 전에 접근하려고 하면 UninitializedPropertyAccessException이 발생한다.
+- 리플렉션을 통해 프로퍼티가 초기화되었는지 확인할 수 있다.(::프로퍼티명.isInitialized)
+#### Delegates.notNull()
+- 기본 타입에도 사용할 수 있다.
+- 프로퍼티가 초기화되기 전에 접근하려고 하면 IllegalStateException이 발생한다.
+
