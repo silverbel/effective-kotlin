@@ -88,8 +88,8 @@ fun main() {
         is Color.Yellow -> println("노랑")
         is Color.Green -> println("초록")
         is Color.Blue -> println("파랑")
-				is Color.Indigo -> println("인디고")
-				is Color.Violet -> println("바이올렛")
+	is Color.Indigo -> println("인디고")
+	is Color.Violet -> println("바이올렛")
     }
 }
 ```
