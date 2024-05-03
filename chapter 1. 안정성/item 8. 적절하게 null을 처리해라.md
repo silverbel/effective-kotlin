@@ -85,20 +85,20 @@ class UserControllerTest{
 이런 코드에 대한 바람직한 해결책은 나중에 속성을 초기화할 수 있는, lateinit을 사용하는 것이다.
 ```kotlin
   class UserControllerTest{
-  private lateinit var dao: UserDao
-  private lateinit var controller: UserController
-  
-  @BeforeEach
-  fun init() {
-    dao = mockk()
-    controller = UserController(dao)
+    private lateinit var dao: UserDao
+    private lateinit var controller: UserController
+    
+    @BeforeEach
+    fun init() {
+      dao = mockk()
+      controller = UserController(dao)
+    }
+    
+    @Test
+    fun test() {
+      controller.doSomething()
+    }
   }
-  
-  @Test
-  fun test() {
-    controller.doSomething()
-  }
-}
 ```
 물론 lateinit을 사용하는 것도 비용이 발생한다.
 만약 초기화 전에 값을 사용하려하면 예외가 발생하지만, 무서워할 필요가 없다.
