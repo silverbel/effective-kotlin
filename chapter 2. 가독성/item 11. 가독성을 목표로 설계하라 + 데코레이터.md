@@ -108,7 +108,35 @@ print(abc) // ABC
 ```kotlin
 operator fun String.invoke(f: ()->String): String = this + f()
 
+fun main() {
+    val myString = "Hello, "
+    
+    // 람다를 사용하여 'myString'을 함수처럼 호출
+    val result = myString {
+        "World!"
+    }
+    
+    println(result) // 출력: "Hello, World!"
+}
+```
+
+```kotlin
+// 중위 함수(Infix Function)란?
+// 중위 함수는 함수 호출 시 점(dot)과 괄호를 사용하지 않고, 키워드 형태로 사용할 수 있는 함수입니다. 중위 함수는 일반적으로 두 피연산자를 연결하거나 비교하는 작업을 간결하게 표현하는 데 사용됩니다.
+
 infix fun String.and(s: String) = this + s
+
+val part1 = "Hello"
+val part2 = "World"
+
+// 전통적인 연결 방식
+val result1 = part1 + " " + part2
+
+// 중위 함수를 활용한 연결 방식
+val result2 = part1 and " " and part2
+
+println(result1) // 출력: "Hello World"
+println(result2) // 출력: "Hello World"
 ```
 이는 아래의 컨벤션 규칙을 위반한다.
 - '연산자는 의미에 맞게 사용해야 한다. invoke를 이런 형태로 사용하면 안된다.
