@@ -106,7 +106,7 @@ print(abc) // ABC
 이렇게 사용하기 위해서는, 아래와 같은 코드가 필요하다.
 
 ```kotlin
-operator fun String.invoke(f: ()->String): String: String = this + f()
+operator fun String.invoke(f: ()->String): String = this + f()
 
 infix fun String.and(s: String) = this + s
 ```
