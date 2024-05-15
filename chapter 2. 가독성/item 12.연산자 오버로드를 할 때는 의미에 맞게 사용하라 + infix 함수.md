@@ -6,8 +6,7 @@
 ```kotlin
 fun Int.factorial(): Int = (1..this).product()
 
-fun Iterable<Int>.product(): Int =
-                fold(1) { ac,, i -> acc * i }
+fun Iterable<Int>.product(): Int = fold(1) { ac,, i -> acc * i }
 ```
 코틀린은 6! 같은 연산자를 지원하지 않지만, 다음과 같이 연산자 오버로딩을 활용하면 만들어 낼 수 있다.
 ```kotlin
@@ -48,9 +47,9 @@ repeat(3) { print("Hello") } // HelloHelloHello
 ``` kotlin
 // HTML DSL. 코틀린 문법을 활용해서 만든 DSL이다.
 body {
-	div {
-		+"Some Text" // <- String.unaryPlus 가 문자열 앞에 사용되었다.
-	}
+    div {
+        +"Some Text" // <- String.unaryPlus 가 문자열 앞에 사용되었다.
+    }
 }
 
 // Gradle DSL. 이것도 코틀린 문법을 이용해서 만든 DSL 이다. Gradle 5.0부터 지원한다.
