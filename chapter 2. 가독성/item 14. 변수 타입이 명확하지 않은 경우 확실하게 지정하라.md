@@ -25,4 +25,4 @@
 ```
 이는 [아이템3](https://github.com/silverbel/effective-kotlin/blob/main/chapter%201.%20%EC%95%88%EC%A0%95%EC%84%B1/item%203.%20%EC%B5%9C%EB%8C%80%ED%95%9C_%ED%94%8C%EB%9E%AB%ED%8F%BC_%ED%83%80%EC%9E%85%EC%9D%84_%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80_%EB%A7%90%EB%9D%BC.md), [아이템4](https://github.com/silverbel/effective-kotlin/blob/main/chapter%201.%20%EC%95%88%EC%A0%95%EC%84%B1/item%204.%20inferred%20%ED%83%80%EC%9E%85%EC%9C%BC%EB%A1%9C%20%EB%A6%AC%ED%84%B4%ED%95%98%EC%A7%80%20%EB%A7%90%EB%9D%BC.md) 에서 다루었듯 가독성 향상 이외에 안전을 위한 행위다.
 
-### 결론 : 타입을 무조건 지정하는 것이 아닌 상황에 맞게 사용하면 된다.
+### ❗ 타입을 무조건 지정하는 것이 아닌 상황에 맞게 사용하면 된다.
