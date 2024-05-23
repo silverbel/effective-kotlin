@@ -101,3 +101,60 @@ fun main(){
 ```
 이렇게 명확하게 작성하면, 코드를 안전하게 사용할 수 있을 뿐만 아니라 가독성도 향상됩니다...?
 -> 솔직히 말해서.. 가독성이 매우매우 안좋다!!!
+
+## DSL 마커
+코틀린 DSL을 사용할 때 여러 리시버를 가진 요소들이 중첩되더라도, 리시버를 명시적으로 붙이지 않는다. DSL은 리시버를 생략하도록 설계되었기 때문에..
+그렇지만, DSL 외부의 함수를 사용하는 것이 위험한 경우가 있다.
+```kotlin
+table {
+    tr{
+        td{ + "Column1"}
+        td{ + "Column2"}
+    }
+      tr{
+          td{ + "Value1"}
+          td{ + "Value2"}
+      }
+}
+```
+이런 잘못된 사용을 막으려면, 암묵적으로 외부 리시버를 사용하는 것을 막는 DslMarker라는 메타 어노테이션을 사아ㅛㅇ한다.
+```kotlin
+@DslMarker
+annotation class HtmlDsl
+
+fun table(f: TableDsl.() -> Unit) { /*...*/ }
+
+@HtmlDsl
+class TableDsl { /*...*/ }
+```
+이렇게 하면 암묵적으로 외부 리시버를 사용하는 것이 금지된다.
+
+```kotlin
+table {
+    tr{
+        td{ + "Column1"}
+        td{ + "Column2"}
+    }
+      tr{ // 컴파일 오류
+          td{ + "Value1"}
+          td{ + "Value2"}
+      }
+}
+
+// 사용하고 싶으면
+table {
+    tr{
+        td{ + "Column1"}
+        td{ + "Column2"}
+    }
+      this@table.tr{
+          td{ + "Value1"}
+          td{ + "Value2"}
+      }
+}
+```
+
+## 정리
+- 짧게 적을 수 있따는 이유만으로 리시버를 제거하지 말자.
+- 여러 개의 리시버가 있는 상황 등에서는 리시버를 명시적으로 적어 주는 것이 좋다. -> 가독성 향상
+- DSL 외부 스코프에 있는 리시버를 명시적으로 적게 강제하고 싶다면, DslMarker 메타 어노테이션을 사용한다.
