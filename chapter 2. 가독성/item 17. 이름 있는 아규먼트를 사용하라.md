@@ -55,7 +55,19 @@ val view = linerLayout {
 ```
 자바에선 람다 표현식과 주석을 활용했다면, 코틀린에서는 이름 있는 아규먼트를 사용해 의미를 명확하게 할 수 있다.
 ```kotlin
-observable.getUser()
+// RxJava
+observable.getUsers()
+    .subscribe((List<User> users) -> {  // onNext
+      // ...
+    }, (Throwable throwable) -> {       // onError
+      // ...
+    }, () -> {                          // onCompleted
+      // ...
+    })
+
+
+// kotlin
+observable.getUsers()
     .subscribeBy(
         onNext = { user: List<User> -> /*...*/},
         onError = { throwable: Thorwable -> /*...*/ },
