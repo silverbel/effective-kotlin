@@ -71,7 +71,9 @@ fun main(){
 기존의 코드에서 this가 붙었다. 이런 경우 this의 타입이 Node?여서 컴파일 에러가 발생한다.
 그러면 this?.name 을 사용하면 되지않나 라고 할 수 있다. 이는 apply의 잘못된 사용이다.
 
-일반적으로 **nullable 값을 처리할 때 also 또는 let을 사용**하는 것이 더 좋다.
+> 일반적으로 **nullable 값을 처리할 때 also 또는 let을 사용**하는 것이 더 좋다.
+
+```kotlin
 class Node(val name: String){
     fun makeChild(childName: String) {
         create("$name.$childName")
@@ -80,6 +82,7 @@ class Node(val name: String){
 
     fun create(name: String) = Node(name)
 }
+```
 
 ```kotlin
 class Node(val name: String){
