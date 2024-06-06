@@ -77,3 +77,77 @@ fun Iterable<Int>.product() =
 - 일반적인 알고리즘을 반복해 만들지 말자. 대부분 stdlib에 정의되어 있다.
 - stdlib에 없는 일반적인 알고리즘이 필요하거나, 특정 알고리즘을 반복해 사용하는 경우 프로젝트 내부에 직접 정의해라
 - 일반적으로 이런 알고리즘들은 확장 함수로 정의하는 것이 좋다.
+
+-----
+# kotlin stdlib 더 알아보기
+
+### 컬렉션(Collection) 관련 함수
+List, Set, Map: 다양한 컬렉션 타입을 제공하고, 각 컬렉션에 대한 유용한 확장 함수들이 많습니다.
+- map, filter, reduce, forEach, find, groupBy 등
+
+### 문자열(String) 관련 함수
+문자열 조작: 문자열을 처리하고 변환하는데 유용한 함수들입니다.
+- substring, split, trim, replace, toUpperCase, toLowerCase, contains 등
+
+### 고차 함수(Higher-order Functions)
+람다와 함수형 프로그래밍: 함수형 프로그래밍을 지원하는 고차 함수들입니다.
+- let, run, apply, also, takeIf, takeUnless 등
+
+### 범위(Range)와 진행(Progression)
+범위 연산: 숫자나 문자 등의 범위를 다루는 함수들입니다.
+- rangeTo, downTo, step, until 등
+
+### 표준 입출력(Standard I/O)
+기본 입출력: 콘솔 입출력 함수들입니다.
+- println, readLine 등
+
+### 예외 처리(Exception Handling)
+예외 처리: 예외를 다루기 위한 함수들입니다.
+- try, catch, finally, throw, runCatching 등
+
+### 기타 유틸리티 함수들
+객체 조작 및 기타: 다양한 상황에서 유용한 함수들입니다.
+- check, require, lazy, assert, repeat, with, when 등
+
+```kotlin
+fun main() {
+    // 컬렉션 예시
+    val numbers = listOf(1, 2, 3, 4, 5)
+    val doubled = numbers.map { it * 2 }
+    println(doubled) // [2, 4, 6, 8, 10]
+
+    // 문자열 예시
+    val text = "Hello, Kotlin!"
+    val words = text.split(" ")
+    println(words) // [Hello,, Kotlin!]
+
+    // 고차 함수 예시
+    val result = numbers.run {
+        filter { it % 2 == 0 }
+    }
+    println(result) // [2, 4]
+
+    // 범위 예시
+    for (i in 1..5) {
+        println(i) // 1, 2, 3, 4, 5
+    }
+
+    // 표준 입출력 예시
+    println("Enter your name:")
+    val name = readLine()
+    println("Hello, $name!")
+
+    // 예외 처리 예시
+    try {
+        val x = 10 / 0
+    } catch (e: ArithmeticException) {
+        println("Caught an exception: ${e.message}")
+    }
+
+    // 기타 예시
+    repeat(3) {
+        println("This is repetition number $it")
+    }
+}
+```
+
