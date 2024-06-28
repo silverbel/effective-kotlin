@@ -74,7 +74,7 @@ enum class MessageLength { SHORT, LONG }
 val messageDisplay = MessageDisplay(context)
 messageDisplay.show("Message")
 ```
-why 함수보다 거 강력한가?
+why 함수보다 더 강력한가?
 - 상태를 가질 수 있고, 많은 함수를 가질 수 있음
 - 의존성 주입 프레임워크를 사용하면, 클래스 생성을 위임할 수 있음
 - mock 객체를 활용하면 해당 클래스에 의존하는 다른 캘르스 기능 테스트 가능
