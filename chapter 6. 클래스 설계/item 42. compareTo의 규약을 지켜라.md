@@ -79,3 +79,15 @@ class User(
 3. 음수 : 리시버가 other보다 작은 경우
 
 이후 함수가 비대칭 동작, 연속적 동작, 코넥스적 동작을 하는지 확인해야한다.
+
+----
+### sortedBy와 sortedWith
+- sortedBy, sortedWith는 timsort 정렬 알고리즘을 사용한다.
+
+### timsort란: 실질적으로 실무에서 많이 사용되는 알고리즘으로, 병합 정렬과 삽입 정렬의 장점을 결합하여 구현된 안정적인 정렬 
+> (https://moneylogging.tistory.com/entry/%EC%9E%90%EB%B0%94-%ED%8C%80%EC%A0%95%EB%A0%AC)
+
+- 삽입 정렬: 리스트의 요소를 차례로 선택하여 이미 정렬된 부분에 알맞은 위치에 삽입하여 정렬하는 알고리즘으로, 구현이 간단하고 소규모 데이터에 효율적이지만 평균 및 최악의 경우 O(n²) 시간 복잡도를 가진다.
+- 병합 정렬: 병합 정렬은 리스트를 반으로 나누어 각각 정렬한 후 병합하여 전체를 정렬하는 알고리즘으로, 안정적이고 시간 복잡도가 O(n log n)이지만 추가 메모리를 필요로 한다.
+> 각 정렬 방식: https://dev-musa.tistory.com/entry/%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EB%A6%AC-%EC%BD%94%ED%8B%80%EB%A6%B0
+
